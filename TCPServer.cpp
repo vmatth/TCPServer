@@ -9,7 +9,7 @@
 using namespace std;
 
 #define PORTNO 8080
-#define IP "172.20.66.64"
+#define IP "192.168.0.100"
 
  
 int main(int argc, char *argv[]){
