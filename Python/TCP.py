@@ -18,16 +18,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print('Connected by', addr)
             while True:
                 data = conn.recv(1024) #Data from PLC in bytes
-                print(data)
+                print(data) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
+                
                 string = data.decode('UTF-8') #Bytes enconded to string
-                print(string)
+                print(string) #<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>
+                
 
-                #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
-                #<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>
-
-                #string = "<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-10:34:29</Date_Time></GROUP_563>"
-
-                #Write the data to a xml file
+                #Write the recieved data in type string to a xml file
+                ##### Det er her det går galt, vi får 
                 tree = ET.XML(string) 
                 with open("xml.xml", "wb") as f:
                     f.write(ET.tostring(tree))
