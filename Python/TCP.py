@@ -9,13 +9,13 @@ HOST = '172.20.66.121'
 PORT = 8080        # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    print("Server on", HOST)
+    print("Server on", HOST) #Server on 172.20.66.121
     s.bind((HOST, PORT))
     s.listen()
     while True:
         conn, addr = s.accept()
         with conn:
-            print('Connected by', addr)
+            print('Connected by', addr) #Connected by ('172.20.1.1', 60077)
             while True:
                 data = conn.recv(1024) #Data from PLC in bytes
                 print(data) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
@@ -25,10 +25,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 
 
                 #Write the recieved data in type string to a xml file
-                ##### Det er her det går galt, vi får 
+                ##### Det er her det går galt, vi får nedenstående fejlbesked, når vi kører
+
                 tree = ET.XML(string) 
                 with open("xml.xml", "wb") as f:
                     f.write(ET.tostring(tree))
+                        #   Traceback (most recent call last):
+                        #     File "/home/axel/TCPServer/Python/TCP.py", line 30, in <module>
+                        #       tree = ET.XML(string) 
+                        #     File "/usr/lib/python3.6/xml/etree/ElementTree.py", line 1314, in XML
+                        #       parser.feed(text)
+                        #   xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 108
 
                 #Open xml file
                 mytree = ET.parse('xml.xml')
