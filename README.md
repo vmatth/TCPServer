@@ -3,4 +3,4 @@ TCP server for SmartLab PLC
 
 
 ## To run Python script:
-### Install: python -m pip install pysimplegui
+### Install: sudo apt-get install python3.8 python3-tk
