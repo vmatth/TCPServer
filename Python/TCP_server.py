@@ -3,6 +3,8 @@
 import socket
 import xml.etree.ElementTree as ET
 import csv
+from tkinter import *
+
 
 
 HOST = '172.20.66.121'  
@@ -40,6 +42,28 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print(tree[1].tag, tree[1].text)
                 print(tree[2].tag, tree[2].text)
 
+
+                window = Tk()
+                window.geometry('500x500')
+                window.title("Welcome to LikeGeeks app")
+
+                lbl1 = Label(window, text="Station: ", font=("Arial Bold", 30))
+                lbl2 = Label(window, text=tree[0].text, font=("Arial Bold", 30))
+                lbl1.grid(column=0, row=0)
+                lbl2.grid(column=1, row=0)
+
+                lbl3 = Label(window, text="Carrier: ", font=("Arial Bold", 30))
+                lbl4 = Label(window, text=tree[1].text, font=("Arial Bold", 30))
+                lbl3.grid(column=0, row=1)
+                lbl4.grid(column=1, row=1)
+
+                lbl5 = Label(window, text="Date and Time: ", font=("Arial Bold", 30))
+                lbl6 = Label(window, text=tree[2].text, font=("Arial Bold", 30))
+                lbl5.grid(column=0, row=2)
+                lbl6.grid(column=1, row=2)
+
+                window.mainloop()
+
                 with open('procssing_times_table.csv', 'rt') as csv_file:
                     csvmatrix = csv.reader(csv_file)
                     csvmatrix = list(csvmatrix)
@@ -50,6 +74,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     SendBytes=str.encode(SendData) 
                     print("The type is : ", type(SendBytes))
 
+                    lbl7 = Label(window, text="Delayed time: ", font=("Arial Bold", 30))
+                    lbl8 = Label(window, text=SendData, font=("Arial Bold", 30))
+                    lbl7.grid(column=0, row=3)
+                    lbl8.grid(column=1, row=3)
                 if not data:
                     break
                 conn.sendall(SendBytes)

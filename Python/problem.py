@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 import xml.etree.ElementTree as ET
+
+
 data2 = b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><DateTime>DT#2021-10-26-11:06:47</DateTime></GROUP_563>\x00\x00'
 
 #Fix the bytes data by removing x00 and other bytes that are irrelevant
