@@ -45,14 +45,20 @@ int main(int argc, char *argv[]){
     if (bind(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) //Associate a socket with an IP address and port number
         cout << "ERROR on binding" << endl;;
 
+
+    
     //Listen for incoming connections
     listen(sockfd,5); //Tell a socket to listen for incoming connections
 
+    while (1)
+    { 
     //Wait for client to connect
     clilen = sizeof(cli_addr); //Placeholder variable
     newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen);
     printf("Client has connected with IP Address: %s\n", inet_ntoa(cli_addr.sin_addr)); // Prints the client's IP Address
 
+
+    
     //Receives data from the client
     if (newsockfd < 0) std::cout << "ERROR on accept" << std::endl;
         bzero(buffer,256);
@@ -63,6 +69,7 @@ int main(int argc, char *argv[]){
     if (n < 0) cout << "ERROR writing to socket" << endl;
         close(newsockfd);
     close(sockfd);
+    }
     return 0;
 }
 
