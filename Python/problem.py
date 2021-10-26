@@ -8,12 +8,6 @@ data_list = list(data2)
 print("Data List" , data_list)
 count = data_list.count(0)
 print(count)
-# i = data_list.index(0)
-# print("ind ", i)
-# while i < len(data_list):
-#   print("Removing from list: ", data_list[i])
-#   i = i + 1
-#   #remove index her :D
 
 data = data2[:-count]   # fjerner de sidste værdier med \x00\x00 i 
   
@@ -24,8 +18,6 @@ print("aa3")
 string = data.decode() #Bytes to string
 print(string)
 print("aa4")
-string1 = '<GROUP_563><Station>9</Station><Carrier>9</Carrier><DateTime>DT#2021-10-26-11:06:47</DateTime></GROUP_563>'
-print(string1)
 #Write the data to a xml file
 tree = ET.fromstring(string) #error here
 #tree = ET.XML(string) #error here
@@ -33,10 +25,10 @@ print("aa5")
 
 
 
-for child in tree:
-    print(child.tag,child.text)
+#for child in tree:
+print("tag",tree[0].tag,"child",tree[0].text)
+print(tree[1].tag,tree[1].text)
+print(tree[2].tag,tree[2].text)
 
-#with open("xml.xml", "wb") as f:
-#    f.write(ET.tostring(tree))
 print("aa6")
 
