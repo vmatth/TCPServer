@@ -3,9 +3,10 @@
 import socket
 import xml.etree.ElementTree as ET
 import csv
-#import pandas as PD
 
-HOST = '172.20.66.121'  
+
+
+HOST = '172.20.66.64'  
 PORT = 8080        # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -17,44 +18,39 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         with conn:
             print('Connected by', addr) #Connected by ('172.20.1.1', 60077)
             while True:
-                data = conn.recv(1024) #Data from PLC in bytes
-                print(data) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
+                data2 = conn.recv(1024) #Data from PLC in bytes
+                print("Bytes with ZEROS: ",data2) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
                 
-                string = data.decode('UTF-8') #Bytes enconded to string
-                print(string) #<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>
+                #Fix the bytes data by removing x00 and other bytes that are irrelevant
+                data_list = list(data2)
+                #print("Data List" , data_list)
+                count = data_list.count(0)
+                print(count)
+                data = data2[:-count]   # fjerner de sidste værdier med \x00\x00 i 
                 
+                #data received from PLC in bytes
+                print("Bytes without ZEROS: ",data)
+                string = data.decode() #Bytes to string
+                print("String to XML-parser",string)
+                
+                #Write the data to a xml object
+                tree = ET.fromstring(string) 
 
-                #Write the recieved data in type string to a xml file
-                ##### Det er her det går galt, vi får nedenstående fejlbesked, når vi kører
+                # Printing name tag and content
+                print(tree[0].tag, tree[0].text)
+                print(tree[1].tag, tree[1].text)
+                print(tree[2].tag, tree[2].text)
 
-                tree = ET.XML(string) 
-                with open("xml.xml", "wb") as f:
-                    f.write(ET.tostring(tree))
-                        #   Traceback (most recent call last):
-                        #     File "/home/axel/TCPServer/Python/TCP.py", line 30, in <module>
-                        #       tree = ET.XML(string) 
-                        #     File "/usr/lib/python3.6/xml/etree/ElementTree.py", line 1314, in XML
-                        #       parser.feed(text)
-                        #   xml.etree.ElementTree.ParseError: not well-formed (invalid token): line 1, column 108
 
-                #Open xml file
-                mytree = ET.parse('xml.xml')
-                myroot = mytree.getroot()
-                print(myroot)
-
-                print('Station', myroot[0].text)
-                print('Carrier ID:', myroot[1].text)
-                print('Date Time:', myroot[2].text)
 
                 with open('procssing_times_table.csv', 'rt') as csv_file:
                     csvmatrix = csv.reader(csv_file)
                     csvmatrix = list(csvmatrix)
-                    row = int(myroot[1].text)-1
-                    col = int(myroot[0].text)-1
+                    row = int(tree[1].text)-1
+                    col = int(tree[0].text)-1
                     SendData=csvmatrix[row][col]
-                    print(SendData)
+                    print("Data sent", SendData)
                     SendBytes=str.encode(SendData) 
-                    print("The type is : ", type(SendBytes))
 
                 if not data:
                     break

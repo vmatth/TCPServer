@@ -7,7 +7,7 @@ from tkinter import *
 
 
 
-HOST = '172.20.66.121'  
+HOST = '172.20.66.64'  
 PORT = 8080        # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -20,7 +20,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print('Connected by', addr) #Connected by ('172.20.1.1', 60077)
             while True:
                 data2 = conn.recv(1024) #Data from PLC in bytes
-                print("Bytes with ZEROS: ",data) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
+                print("Bytes with ZEROS: ",data2) #b'<GROUP_563><Station>9</Station><Carrier>9</Carrier><Date_Time>DT#2021-10-26-11:06:47</Date_Time></GROUP_563>\x00\x00'
                 
                 #Fix the bytes data by removing x00 and other bytes that are irrelevant
                 data_list = list(data2)
@@ -62,7 +62,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 lbl5.grid(column=0, row=2)
                 lbl6.grid(column=1, row=2)
 
-                window.mainloop()
+                
 
                 with open('procssing_times_table.csv', 'rt') as csv_file:
                     csvmatrix = csv.reader(csv_file)
@@ -81,3 +81,5 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not data:
                     break
                 conn.sendall(SendBytes)
+
+                window.mainloop()
