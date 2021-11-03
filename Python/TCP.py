@@ -55,3 +55,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not data:
                     break
                 conn.sendall(SendBytes)
+                # Save data to txt file
+                with open('Data_group563.txt', 'a') as f:
+                    f.write('Date and time: %s\n' % tree[2].text)
+                    f.write('Station ID: %s\n' % tree[1].text)
+                    f.write('Carrier ID: %s\n' % tree[0].text)
+                    f.write('Process time: %s\n' % SendData)
+                    f.write('\n')
+                    f.close()
