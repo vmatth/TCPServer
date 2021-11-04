@@ -1,1 +1,0 @@
-<GROUP_563><Station>STATIONID</Station><Carrier>CARRIERID</Carrier><Date_Time>DATETIME</Date_Time></GROUP_563>
