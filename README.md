@@ -8,7 +8,7 @@ sudo apt-get install python3.8
 Install relevant dependancies if the code fails.
 
 ### Setup
-Change the "HOST" variable to the Server's IP address.
+In TCP.py, change "HOST" to the server's IP address.
 
 ### Run the script
 ```
