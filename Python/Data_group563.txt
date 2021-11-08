@@ -1,0 +1,115 @@
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 16
+Process time: 4352
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 8
+Process time: 2084
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 16
+Process time: 4352
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 8
+Process time: 2084
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 16
+Process time: 4352
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 8
+Process time: 2084
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 14
+Process time: 4387
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 7
+Process time: 3006
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 16
+Process time: 4352
+
+Date and time: DT#2021-11-08-14:07:24
+Station ID: 8
+Carrier ID: 8
+Process time: 2084
+
