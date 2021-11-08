@@ -1,16 +1,26 @@
 # TCPServer
 TCP server for SmartLab PLC
 
-
-## To run Python script:
-Install python
+## Install python
 ``` 
 sudo apt-get install python3.8
 ```
-Install relevant dependancies.
+Install relevant dependancies if the code fails.
+
+### Setup
+Change the "HOST" variable to the Server's IP address.
 
 ### Run the script
 ```
 cd TCPServer/Python
 python3 TCP.py
 ```
+
+# PLC Client
+Open ROB_Group563_SAF.project in CodeSYS
+Change the IP address on line 20 to the server's IP 
+
+Connect to the PLC
+Download to PLC
+Run
+
