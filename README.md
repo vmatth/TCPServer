@@ -21,6 +21,8 @@ Open ROB_Group563_SAF.project in CodeSYS
 Change the IP address on line 20 to the server's IP 
 
 Connect to the PLC
+
 Download to PLC
+
 Run
 
