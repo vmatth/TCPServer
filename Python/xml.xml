@@ -5,7 +5,7 @@
 </GROUP_563>
 
 <root>
-  <child></child>
-  <child></child>
-  <child></child>
+  <child>Text</child>
+  <child>Text</child>
+  <child>Text</child>
 </root>
